@@ -1,0 +1,111 @@
+query {  
+  # Get All Users
+  # users {
+  #   id
+  #   name
+  #   age
+  # }
+  
+  # Filter by Name	
+  # users (name: "monica") {
+  #   id
+  #   name
+  #   age
+  # }
+  
+  # Get all Posts
+  # posts {
+  #   id
+  #   title
+  #   body
+  #   published
+  # }
+  
+  # Filter post by Search Keyword
+  # posts (search: "React") {
+  #   id
+  #   title
+  #   body
+  #   published
+  # }
+  
+  #Get all comments
+  # comments {
+  #   id
+  #   text
+  # }
+  
+  #Get all posts with Creator
+  # posts {
+  #   id
+  #   title
+  #   body
+  #   creator {
+  #     id
+  #     name
+  #     age
+  #   }
+  # }
+  
+  #Get all users Posts
+  # users {
+  #   id
+  #   name
+  #   age
+  #   posts {
+  #     id
+  #     title
+  #     body
+  #   }
+  # }
+  
+  #Get all post with Comments
+  # posts {
+  #   id
+  #   title
+  #   body
+  #   creator {
+  #     id
+  #     name
+  #     age
+  #   }
+  #   comments {
+  #     id
+  #     text
+  #     author {
+  #       name
+  #     }
+  #   }
+  # }
+  
+  #Get all comments with Post
+  # comments {
+  #   id
+  #   text
+  #   post {
+  #     id
+  #     title
+  #     body
+  #   }
+  # }
+  
+  # Get all users with posts and creator of post and with comments
+  users {
+    id
+    name
+    posts {
+      title
+      body
+      creator {
+        name
+      }
+      comments {
+        id
+        text
+        author {
+          name        
+        }
+      }
+    }
+  }
+}

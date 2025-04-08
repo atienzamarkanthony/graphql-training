@@ -1,0 +1,21 @@
+{
+  "name": "02-graphql-basics",
+  "version": "1.0.0",
+  "description": "GraphQL Basics",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "devStart": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark Anthony Atienza",
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^16.10.0",
+    "graphql-yoga": "^5.13.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
