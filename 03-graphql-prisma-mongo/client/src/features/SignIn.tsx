@@ -39,38 +39,39 @@ const SignIn = () => {
 
   return (
     <React.Fragment>
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="justify-center w-80 shadow-md p-5">
-          <fieldset className="fieldset">
-            <legend className="fieldset-legend">
-              <span className="font-bold">Email Address:</span>{" "}
-            </legend>
-            <input
-              name="email"
-              type="text"
-              className="input"
-              placeholder="Type here"
-              onChange={handleInputChange}
-            />
-          </fieldset>
-          <fieldset className="fieldset">
-            <legend className="fieldset-legend">
-              <span className="font-bold">Password:</span>{" "}
-            </legend>
-            <input
-              name="password"
-              type="password"
-              className="input"
-              placeholder="Type here"
-              onChange={handleInputChange}
-            />
-          </fieldset>
-          <button
-            className="btn btn-success mt-2 float-end"
-            onClick={handleSignIn}
-          >
-            Sign In
-          </button>
+      <div className="hero bg-gray-300 min-h-screen">
+        <div className="justify-center w-80 shadow-md p-5 bg-white rounded-xl">
+          <form onSubmit={handleSignIn}>
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend">
+                <span className="font-bold">Email Address:</span>{" "}
+              </legend>
+              <input
+                name="email"
+                type="email"
+                className="input"
+                placeholder="Type here"
+                onChange={handleInputChange}
+                required
+              />
+            </fieldset>
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend">
+                <span className="font-bold">Password:</span>{" "}
+              </legend>
+              <input
+                name="password"
+                type="password"
+                className="input"
+                placeholder="Type here"
+                onChange={handleInputChange}
+                required
+              />
+            </fieldset>
+            <button type="submit" className="btn btn-neutral mt-2 float-end">
+              Sign In
+            </button>
+          </form>
         </div>
       </div>
     </React.Fragment>
