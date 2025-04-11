@@ -1,6 +1,6 @@
 import { createSchema, createYoga } from "graphql-yoga";
 import { createServer } from "node:http";
-import { PrismaClient } from "../prisma/app/generated/prisma/client/index.js";
+import { PrismaClient } from "../../server/prisma/app/generated/prisma/client/index.js";
 import { GraphQLError } from "graphql";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -48,6 +48,14 @@ const typeDefs = /* GraphQL */ `
     title: String!
     body: String!
     published: Boolean!
+    author: User!
+  }
+
+  type User {
+    name: String!
+    age: Int!
+    email: String!
+    role: Role!
   }
 
   input CreatePostInput {
@@ -64,10 +72,14 @@ const typeDefs = /* GraphQL */ `
 
 const resolvers = {
   Query: {
-    hello: () => "Hello World",
     posts: async (parent, args, context, info) => {
       try {
-        const allPosts = await prisma.post.findMany();
+        const allPosts = await prisma.post.findMany({
+          include: {
+            author: true,
+          },
+        });
+
         return allPosts;
       } catch (err) {
         throw new GraphQLError(err);
@@ -88,7 +100,7 @@ const resolvers = {
             role,
           },
         });
-        console.log(createdUser);
+
         return { message: "User created with Id - " + createdUser.id };
       } catch (err) {
         throw new GraphQLError(err);
@@ -143,6 +155,7 @@ const resolvers = {
             authorId: id,
           },
         });
+
         return createdPost;
       } catch (err) {
         throw new GraphQLError(err);

@@ -1,7 +1,7 @@
 ## GraphQL Training
 GraphQL Training using GraphQL Yoga and Node.JS
 
-## Install Dependencies
+## Install Dependencies for Server
 - npm init -y
 - npm install prisma
 - npx prisma init
@@ -62,3 +62,8 @@ query GetPosts {
     published
   }
 }
+
+## Install Dependencies for Client
+- npm create vite
+- npm install @apollo/client graphql react
+- npm install tailwindcss@latest @tailwindcss/vite@latest daisyui@latest
